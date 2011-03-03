@@ -1,0 +1,7 @@
+Sonar Pom Quality Plugin
+
+-------
+
+The aim of this sonar plugin is to provide metrics about quality of Maven POM file.
+
+It's based from maven-quality-plugin which get information about dependencies declaration and maven conventions compliance.
