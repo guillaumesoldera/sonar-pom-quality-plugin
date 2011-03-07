@@ -13,6 +13,12 @@ import org.sonar.api.resources.Project;
 
 import com.serli.sonar.plugins.pomquality.PomQualityUtils;
 import com.serli.sonar.plugins.pomquality.dependencies.api.PomQualityDependenciesParser;
+import com.serli.sonar.plugins.pomquality.dependencies.jaxb.DeclaredDependency;
+import com.serli.sonar.plugins.pomquality.dependencies.jaxb.Dependencies;
+import com.serli.sonar.plugins.pomquality.dependencies.jaxb.ExclusionDependency;
+import com.serli.sonar.plugins.pomquality.dependencies.jaxb.MultipleDeclarationDependency;
+import com.serli.sonar.plugins.pomquality.dependencies.jaxb.OverridingDependencyVersion;
+import com.serli.sonar.plugins.pomquality.dependencies.jaxb.UndeclaredDependency;
 
 public class PomQualityDependenciesSensor implements Sensor {
 
@@ -27,7 +33,7 @@ public class PomQualityDependenciesSensor implements Sensor {
   public void analyse(Project project, SensorContext sensorContext) {
 //    saveLabelMeasure(sensorContext);
 //    saveNumericMeasure(sensorContext);
-    File report = PomQualityUtils.getReport(project, mavenProject);
+    File report = PomQualityUtils.getDependenciesAnalyzeReport(project, mavenProject);
     if (report != null) {
       LOG.info("Dependencies analysis report founded at " + report.getPath());
       parseReport(report, sensorContext);
@@ -35,9 +41,9 @@ public class PomQualityDependenciesSensor implements Sensor {
     
   }
 
-  private void parseReport(File report, SensorContext sensorContext) {
+  protected void parseReport(File report, SensorContext sensorContext) {
     PomQualityDependenciesParser parser = new PomQualityDependenciesParser();
-    parser.parseReport(report, sensorContext);
+    parser.parseReport(report, sensorContext, new Class[] { DeclaredDependency.class, UndeclaredDependency.class, ExclusionDependency.class, MultipleDeclarationDependency.class, OverridingDependencyVersion.class, Dependencies.class });
   }
 
   private void saveNumericMeasure(SensorContext context) {

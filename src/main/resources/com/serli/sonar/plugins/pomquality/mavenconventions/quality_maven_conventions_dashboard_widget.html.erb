@@ -56,50 +56,24 @@
 </div>
 -->
 <table width="100%">
-<tr>
-<td width="50%">
-<div class="dashbox">
-<p class="title">Maven dependencies declared</p>
-<p>
-    <span class="big">
-      <%= format_measure('nb-dependencies', :url => url_for_drilldown('nb-dependencies')) -%>
-    </span>
-</p>
-<p>
-<%= format_measure('dependencies-used-declared') -%> <%= metric('dependencies-used-declared').short_name -%> 
-</p>
-<p>
-<%= format_measure('dependencies-unused-declared') -%> <%= metric('dependencies-unused-declared').short_name -%> 
-</p>
-<p>
-<%= format_measure('dependencies-used-undeclared') -%> <%= metric('dependencies-used-undeclared').short_name -%> 
-</p>
-<div class="yui-u">
-      <%= piechart(measure('dep-distrib'), { :size => "248x65"}) -%>
-</div>
-</div>
-</td>
-<td width="50%">
-<div class="dashbox">
-<p class="title">Potiental bug in dependencies declaration</p>
-<p>
-    <span class="big">
-      <%= format_measure('nb-potential-bugs-dependencies') -%>
-    </span>
-</p>
-<p>
-<%= format_measure('multiple-declaration') -%> <%= metric('multiple-declaration').short_name -%> 
-</p>
-<p>
-<%= format_measure('overriden-versions') -%> <%= metric('overriden-versions').short_name -%> 
-</p>
-<p>
-<%= format_measure('exclusion-errors') -%> <%= metric('exclusion-errors').short_name -%> 
-</p>
-</div>
-
-</td>
-
-</tr>
-
+	<div class="dashbox">
+		<p class="title">Maven conventions compliance</p>
+		<p>
+  		<span class="big">
+    		<%= format_measure('nb-maven-convention-violations', :url => url_for_drilldown('nb-maven-convention-violations')) -%>
+  		</span>
+		</p>
+		<tr>
+			<td width="50%">
+				<div class="dashbox">
+					<p>
+						<%= format_measure('nb-formatting-violations') -%> <%= metric('nb-formatting-violations').short_name -%> 
+					</p>
+					<p>
+						<%= format_measure('nb-naming-violations') -%> <%= metric('nb-naming-violations').short_name -%> 
+					</p>
+				</div>
+			</td>
+		</tr>
+	</div>
 </table>

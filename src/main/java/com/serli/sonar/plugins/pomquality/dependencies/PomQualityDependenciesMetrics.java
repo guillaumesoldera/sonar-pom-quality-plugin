@@ -18,39 +18,39 @@ public class PomQualityDependenciesMetrics implements Metrics {
     "Random value", Metric.ValueType.FLOAT, Metric.DIRECTION_BETTER, false,
     CoreMetrics.DOMAIN_GENERAL);
   
-  public static final Metric NB_DEPENDENCIES = new Metric("nbDependencies", "Dependencies number",
+  public static final Metric NB_DEPENDENCIES = new Metric("nb-dependencies", "Dependencies number",
       "Dependencies number in POM file", Metric.ValueType.INT, Metric.DIRECTION_NONE, false,
       CoreMetrics.DOMAIN_GENERAL);
   
-  public static final Metric NB_POTENTIAL_BUGS_DEPENDENCIES = new Metric("nbPotentialBugsDependencies", "Potential bugs number",
+  public static final Metric NB_POTENTIAL_BUGS_DEPENDENCIES = new Metric("nb-potential-bugs-dependencies", "Potential bugs number",
       "Number of potential bugs in POM file", Metric.ValueType.INT, Metric.DIRECTION_NONE, false,
       CoreMetrics.DOMAIN_GENERAL);
   
-  public static final Metric DEPENDENCIES_USED_DECLARED = new Metric("dependenciesUsedDeclared", "Dependencies used and declared",
+  public static final Metric DEPENDENCIES_USED_DECLARED = new Metric("dependencies-used-declared", "Dependencies used and declared",
       "Dependencies used and declared in POM file", Metric.ValueType.INT, Metric.DIRECTION_NONE, false,
       CoreMetrics.DOMAIN_GENERAL);
   
-  public static final Metric DEPENDENCIES_USED_UNDECLARED = new Metric("dependenciesUsedUndeclared", "Dependencies used but undeclared",
+  public static final Metric DEPENDENCIES_USED_UNDECLARED = new Metric("dependencies-used-undeclared", "Dependencies used but undeclared",
       "Dependencies used but undeclared in POM file", Metric.ValueType.INT, Metric.DIRECTION_WORST, false,
       CoreMetrics.DOMAIN_GENERAL);
   
-  public static final Metric DEPENDENCIES_UNUSED_DECLARED = new Metric("dependenciesUnusedDeclared", "Dependencies unused but declared",
+  public static final Metric DEPENDENCIES_UNUSED_DECLARED = new Metric("dependencies-unused-declared", "Dependencies unused but declared",
       "Dependencies unused but declared in POM file", Metric.ValueType.INT, Metric.DIRECTION_WORST, false,
       CoreMetrics.DOMAIN_GENERAL);
   
-  public static final Metric MULTIPLE_DECLARATION = new Metric("multipleDeclaration", "Dependencies declared many times",
+  public static final Metric MULTIPLE_DECLARATION = new Metric("multiple-declaration", "Dependencies declared many times",
       "Dependencies declared many times in POM file", Metric.ValueType.INT, Metric.DIRECTION_WORST, false,
       CoreMetrics.DOMAIN_GENERAL);
   
-  public static final Metric OVERRIDEN_VERSIONS = new Metric("overridenVersions", "Overriden dependency version",
+  public static final Metric OVERRIDEN_VERSIONS = new Metric("overriden-versions", "Overriden dependency version",
       "Dependency which override a dependencyManagement in POM file", Metric.ValueType.INT, Metric.DIRECTION_WORST, false,
       CoreMetrics.DOMAIN_GENERAL);
 
-  public static final Metric EXCLUSION_ERRORS = new Metric("exclusionErrors", "Exclusions errors",
+  public static final Metric EXCLUSION_ERRORS = new Metric("exclusion-errors", "Exclusions errors",
       "Dependency declared in POM file nut excluded in a dependencyManagement", Metric.ValueType.INT, Metric.DIRECTION_WORST, false,
       CoreMetrics.DOMAIN_GENERAL);
   
-  public static final Metric DEPENDENCIES_DISTRIBUTION = new Metric("depDistrib", "Dependencies distribution",
+  public static final Metric DEPENDENCIES_DISTRIBUTION = new Metric("dep-distrib", "Dependencies distribution",
       "Distribution of dependencies in POM file", Metric.ValueType.DISTRIB, Metric.DIRECTION_NONE, false,
       CoreMetrics.DOMAIN_GENERAL);
   
@@ -60,7 +60,6 @@ public class PomQualityDependenciesMetrics implements Metrics {
     return Arrays.asList(NB_DEPENDENCIES, DEPENDENCIES_USED_DECLARED, DEPENDENCIES_UNUSED_DECLARED, DEPENDENCIES_USED_UNDECLARED, MULTIPLE_DECLARATION, OVERRIDEN_VERSIONS, EXCLUSION_ERRORS, DEPENDENCIES_DISTRIBUTION, NB_POTENTIAL_BUGS_DEPENDENCIES);
   }
   
-  // TODO create metrics for maven convention, formatting convention, naming convention et dependance
   // metric pour le message
   // metric pour bug potentiel (multiple declaration (warning ?), exclusionsError et overridenVersion)
   

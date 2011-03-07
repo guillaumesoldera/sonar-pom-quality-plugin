@@ -1,0 +1,51 @@
+<mavenConventionsViolation>
+  <formattingViolations>
+    <violation>
+      <tag>groupId</tag>
+      <line>11</line>
+      <message>There is 2 line skipped after tag parent. The wanted value is 1. (Line 11).</message>
+    </violation>
+    <violation>
+      <tag>licenses</tag>
+      <line>20</line>
+      <message>There is 2 line skipped after tag url. The wanted value is 0. (Line 20).</message>
+    </violation>
+    <violation>
+      <tag>reporting</tag>
+      <line>34</line>
+      <message>There is 2 line skipped after tag properties. The wanted value is 1. (Line 34).</message>
+    </violation>
+    <violation>
+      <tag>build</tag>
+      <line>45</line>
+      <message>The tag build sould be before tag reporting (Line 45).</message>
+    </violation>
+    <violation>
+      <tag>dependencies</tag>
+      <line>112</line>
+      <message>The tag dependencies sould be before tag build (Line 112).</message>
+    </violation>
+    <violation>
+      <tag>dependencies</tag>
+      <line>112</line>
+      <message>There is 2 line skipped after tag build. The wanted value is 1. (Line 112).</message>
+    </violation>
+  </formattingViolations>
+  <namingViolations>
+    <violation>
+      <tag>groupId</tag>
+      <line>11</line>
+      <message>groupId should match with pattern ^[a-z]+(\.[a-z][a-z0-9]*)*$. (Line 11).</message>
+    </violation>
+    <violation>
+      <tag>groupId</tag>
+      <line>11</line>
+      <message>groupId should start with top level domain names (com, edu, gov, mil, net, org) or one of the English two-letter codes identifying countries as specified in ISO Standard 3166. (Line 11).</message>
+    </violation>
+    <violation>
+      <tag>artifactId</tag>
+      <line>12</line>
+      <message>artifactId should match with pattern ^[a-z]+(\-[a-z][a-z0-9]*)*$. (Line 12).</message>
+    </violation>
+  </namingViolations>
+</mavenConventionsViolation>

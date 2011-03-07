@@ -1,4 +1,4 @@
-package com.serli.sonar.plugins.pomquality;
+package com.serli.sonar.plugins.pomquality.dependencies;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -14,7 +14,7 @@ import org.sonar.api.resources.Project;
 import com.serli.sonar.plugins.pomquality.dependencies.PomQualityDependenciesMavenInitializer;
 import com.serli.sonar.plugins.pomquality.dependencies.PomQualityDependenciesMavenPluginHandler;
 
-public class PomQualityMavenInitializerTest {
+public class PomQualityDependenciesMavenInitializerTest {
 
   private Project project;
   private PomQualityDependenciesMavenInitializer initializer;

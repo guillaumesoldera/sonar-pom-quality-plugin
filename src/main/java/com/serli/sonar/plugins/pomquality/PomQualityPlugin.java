@@ -6,11 +6,8 @@ import java.util.List;
 import org.sonar.api.Extension;
 import org.sonar.api.Plugin;
 
-import com.serli.sonar.plugins.pomquality.dependencies.PomQualityDependenciesDashboardWidget;
-import com.serli.sonar.plugins.pomquality.dependencies.PomQualityDependenciesMavenInitializer;
-import com.serli.sonar.plugins.pomquality.dependencies.PomQualityDependenciesMavenPluginHandler;
-import com.serli.sonar.plugins.pomquality.dependencies.PomQualityDependenciesMetrics;
-import com.serli.sonar.plugins.pomquality.dependencies.PomQualityDependenciesSensor;
+import com.serli.sonar.plugins.pomquality.dependencies.api.PomQualityDependenciesUtils;
+import com.serli.sonar.plugins.pomquality.mavenconventions.api.PomQualityMavenConventionsUtils;
 
 /**
  * This class is the entry point for all extensions
@@ -41,11 +38,8 @@ public class PomQualityPlugin implements Plugin {
   // This is where you're going to declare all your Sonar extensions
   public List<Class<? extends Extension>> getExtensions() {
     List<Class<? extends Extension>> liste = new ArrayList<Class<? extends Extension>>();
-    liste.add(PomQualityDependenciesMetrics.class);
-    liste.add(PomQualityDependenciesSensor.class);
-    liste.add(PomQualityDependenciesDashboardWidget.class);
-    liste.add(PomQualityDependenciesMavenPluginHandler.class);
-    liste.add(PomQualityDependenciesMavenInitializer.class);
+    liste.addAll(PomQualityDependenciesUtils.getExtensions());
+    liste.addAll(PomQualityMavenConventionsUtils.getExtensions());
     return liste;
   }
 

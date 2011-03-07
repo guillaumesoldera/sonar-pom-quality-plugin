@@ -21,10 +21,18 @@ public final class PomQualityUtils {
   
   public static final String REPOSITORY_KEY = "pomquality";
   
-  public static File getReport(Project project, MavenProject mavenProject) {
-    File report = getReportFromPluginConfiguration(project, mavenProject);
+  public static File getDependenciesAnalyzeReport(Project project, MavenProject mavenProject) {
+    return getReport(project, mavenProject, "reports/dependencies-analysis.xml");
+  }
+  
+  public static File getMavenConventionsReport(Project project, MavenProject mavenProject) {
+    return getReport(project, mavenProject, "reports/maven-conventions-check.xml");
+  }
+  
+  public static File getReport(Project project, MavenProject mavenProject, String file) {
+    File report = getReportFromPluginConfiguration(project, mavenProject, file);
     if (report == null) {
-      report = getReportFromDefaultPath(project);
+      report = getReportFromDefaultPath(project, file);
     }
 
     if (report == null || !report.exists() || !report.isFile()) {
@@ -34,20 +42,20 @@ public final class PomQualityUtils {
     return report;
   }
   
-  private static File getReportFromPluginConfiguration(Project project, MavenProject mavenProject) {
+  private static File getReportFromPluginConfiguration(Project project, MavenProject mavenProject, String file) {
     MavenPlugin mavenPlugin = MavenPlugin.getPlugin(mavenProject, GROUP_ID, ARTIFACT_ID);
     if (mavenPlugin != null) {
       String path = mavenPlugin.getParameter("outputDirectory");
       System.out.println("path = " + path);
       if (path != null) {
-        return project.getFileSystem().resolvePath(path + "reports/dependencies-analysis.xml");
+        return project.getFileSystem().resolvePath(path + file);
       }
     }
     return null;
   }
 
-  private static File getReportFromDefaultPath(Project project) {
-    return new File(project.getFileSystem().getBuildDir(), "reports/dependencies-analysis.xml");
+  private static File getReportFromDefaultPath(Project project, String file) {
+    return new File(project.getFileSystem().getBuildDir(), file);
   }
 
   private PomQualityUtils() {

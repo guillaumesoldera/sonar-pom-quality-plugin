@@ -1,4 +1,4 @@
-package com.serli.sonar.plugins.pomquality;
+package com.serli.sonar.plugins.pomquality.dependencies;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -12,10 +12,11 @@ import org.junit.Test;
 import org.sonar.api.batch.maven.MavenPlugin;
 import org.sonar.api.resources.Project;
 
+import com.serli.sonar.plugins.pomquality.PomQualityUtils;
 import com.serli.sonar.plugins.pomquality.dependencies.PomQualityDependenciesMavenPluginHandler;
 
 
-public class PomQualityMavenPluginHandlerTest {
+public class PomQualityDependenciesMavenPluginHandlerTest {
 
   protected PomQualityDependenciesMavenPluginHandler handler;
   
@@ -36,10 +37,10 @@ public class PomQualityMavenPluginHandlerTest {
     when(project.getPom()).thenReturn(new MavenProject());
     when(project.getExclusionPatterns()).thenReturn(new String[0]);
 
-    MavenPlugin coberturaPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
-    handler.configure(project, coberturaPlugin);
+    MavenPlugin qualityPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
+    handler.configure(project, qualityPlugin);
 
-    assertThat(coberturaPlugin.getParameter("failOnWarning"), is("false"));
+    assertThat(qualityPlugin.getParameter("failOnWarning"), is("false"));
   }
 
   @Test
@@ -49,10 +50,10 @@ public class PomQualityMavenPluginHandlerTest {
     when(project.getPom()).thenReturn(new MavenProject());
     when(project.getExclusionPatterns()).thenReturn(new String[0]);
 
-    MavenPlugin coberturaPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
-    handler.configure(project, coberturaPlugin);
+    MavenPlugin qualityPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
+    handler.configure(project, qualityPlugin);
 
-    assertThat(coberturaPlugin.getParameter("ignoreNonCompile"), is("false"));
+    assertThat(qualityPlugin.getParameter("ignoreNonCompile"), is("false"));
   }
 
   @Test
@@ -62,10 +63,10 @@ public class PomQualityMavenPluginHandlerTest {
     when(project.getPom()).thenReturn(new MavenProject());
     when(project.getExclusionPatterns()).thenReturn(new String[0]);
 
-    MavenPlugin coberturaPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
-    handler.configure(project, coberturaPlugin);
+    MavenPlugin qualityPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
+    handler.configure(project, qualityPlugin);
 
-    assertThat(coberturaPlugin.getParameter("analyzeDepMgt"), is("true"));
+    assertThat(qualityPlugin.getParameter("analyzeDepMgt"), is("true"));
   }
 
   @Test
@@ -75,10 +76,10 @@ public class PomQualityMavenPluginHandlerTest {
     when(project.getPom()).thenReturn(new MavenProject());
     when(project.getExclusionPatterns()).thenReturn(new String[0]);
 
-    MavenPlugin coberturaPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
-    handler.configure(project, coberturaPlugin);
+    MavenPlugin qualityPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
+    handler.configure(project, qualityPlugin);
 
-    assertThat(coberturaPlugin.getParameter("uniqueDeclaration"), is("true"));
+    assertThat(qualityPlugin.getParameter("uniqueDeclaration"), is("true"));
   }
 
   @Test
@@ -88,10 +89,10 @@ public class PomQualityMavenPluginHandlerTest {
     when(project.getPom()).thenReturn(new MavenProject());
     when(project.getExclusionPatterns()).thenReturn(new String[0]);
 
-    MavenPlugin coberturaPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
-    handler.configure(project, coberturaPlugin);
+    MavenPlugin qualityPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
+    handler.configure(project, qualityPlugin);
 
-    assertThat(coberturaPlugin.getParameter("ignoreDirect"), is("false"));
+    assertThat(qualityPlugin.getParameter("ignoreDirect"), is("false"));
   }
   
   @Test
@@ -101,9 +102,9 @@ public class PomQualityMavenPluginHandlerTest {
     when(project.getPom()).thenReturn(new MavenProject());
     when(project.getExclusionPatterns()).thenReturn(new String[0]);
 
-    MavenPlugin coberturaPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
-    handler.configure(project, coberturaPlugin);
+    MavenPlugin qualityPlugin = new MavenPlugin(PomQualityUtils.GROUP_ID, PomQualityUtils.ARTIFACT_ID, PomQualityUtils.VERSION);
+    handler.configure(project, qualityPlugin);
 
-    assertThat(coberturaPlugin.getParameter("logConsole"), is("false"));
+    assertThat(qualityPlugin.getParameter("logConsole"), is("false"));
   }
 }
