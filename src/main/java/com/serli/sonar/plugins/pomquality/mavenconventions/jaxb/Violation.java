@@ -23,27 +23,27 @@ public class Violation {
 
 
 
-  public String getTag() {
+  public final String getTag() {
     return tag;
   }
 
-  public void setTag(String tag) {
+  public final void setTag(String tag) {
     this.tag = tag;
   }
 
-  public int getLine() {
+  public final int getLine() {
     return line;
   }
 
-  public void setLine(int line) {
+  public final void setLine(int line) {
     this.line = line;
   }
 
-  public String getMessage() {
+  public final String getMessage() {
     return message;
   }
 
-  public void setMessage(String message) {
+  public final void setMessage(String message) {
     this.message = message;
   }
 }

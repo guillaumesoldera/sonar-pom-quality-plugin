@@ -46,7 +46,6 @@ public final class PomQualityUtils {
     MavenPlugin mavenPlugin = MavenPlugin.getPlugin(mavenProject, GROUP_ID, ARTIFACT_ID);
     if (mavenPlugin != null) {
       String path = mavenPlugin.getParameter("outputDirectory");
-      System.out.println("path = " + path);
       if (path != null) {
         return project.getFileSystem().resolvePath(path + file);
       }

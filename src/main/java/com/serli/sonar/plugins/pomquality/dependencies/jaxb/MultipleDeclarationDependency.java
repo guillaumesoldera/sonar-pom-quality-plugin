@@ -25,29 +25,29 @@ public class MultipleDeclarationDependency {
     this.declarations = declarations;
   }
 
-  public String getGroupId() {
+  public final String getGroupId() {
     return groupId;
   }
 
-  public void setGroupId(String groupId) {
+  public final void setGroupId(String groupId) {
     this.groupId = groupId;
   }
 
-  public String getArtifactId() {
+  public final String getArtifactId() {
     return artifactId;
   }
 
-  public void setArtifactId(String artifactId) {
+  public final void setArtifactId(String artifactId) {
     this.artifactId = artifactId;
   }
 
   @XmlElementWrapper(name = "declarations")
   @XmlElement(name = "declarationLine")
-  public List<Integer> getDeclarations() {
+  public final List<Integer> getDeclarations() {
     return declarations;
   }
 
-  public void setDeclarations(List<Integer> declarations) {
+  public final void setDeclarations(List<Integer> declarations) {
     this.declarations = declarations;
   }
   

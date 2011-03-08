@@ -1,105 +1,45 @@
-<!-- <div class="dashbox">
-  <h3>Description : <span title="<%= metric('nbDependencies').description -%>"></span></h3>
-  <p>
-    <span class="big">
-      <%= format_measure('nbDependencies') -%> <%= tendency_icon(measure('dependenciesUsedDeclared')) %>
-    </span>
-  </p>
-  <p><%= format_measure('message') -%></p>
-  <p>
-    <%= format_measure('ncloc', :suffix => ' lines', :url => url_for_drilldown('ncloc')) -%>
-  </p>
-</div>
-<div class="dashbox">
-	<h3>Help</h3>
-	  <p>
-      Read configuration : <%= configuration('sonar.jdbc.username') -%>
-    </p>
-
-   	<p>
-	    Sample of Jfree Eastwood chart : <br/>
-		<%= gchart('cht=bhs&chco=FF0000,00FF00,0000FF&chs=200x125&chd=s:FOE,THE,Bar&chxt=x,y&chxl=1:|Dec|Nov|Oct|0:||20K||60K||100K|') -%>
-	  </p>
-	  <p>
-	  PieChart
-	   <div class="yui-u">
-      <%= piechart(measure('depDistrib'), { :size => "248x64"}) -%>
-    </div>
-    </p>
-	  
-	<p>
-		Widget properties:
-		<table>
-		<tr>
-		    <td>param2:</td>
-		    <td><%= widget_properties['param2'] -%></td>	
-		  </tr>
-		</table>
-	</p>
-		<p>
-		Résultats :
-		<table>
-		  <tr>
-		    <td>Name : <%= metric('dependenciesUsedDeclared').short_name -%></td>
-		    <td><%= format_measure('dependenciesUsedDeclared') -%></td>	
-		  </tr>	
-		<tr>
-		    <td>Name : <%= metric('dependenciesUnusedDeclared').short_name -%></td>
-		    <td><%= format_measure('dependenciesUnusedDeclared') -%></td>	
-		  </tr>	
-		  <tr>
-		    <td>Name : <%= metric('dependenciesUsedUndeclared').short_name -%></td>
-		    <td><%= format_measure('dependenciesUsedUndeclared') -%></td>	
-		  </tr>	
-		</table>
-	</p>
-</div>
--->
 <table width="100%">
-<tr>
-<td width="50%">
-<div class="dashbox">
-<p class="title">Maven dependencies declared</p>
-<p>
-    <span class="big">
-      <%= format_measure('nb-dependencies', :url => url_for_drilldown('nb-dependencies')) -%>
-    </span>
-</p>
-<p>
-<%= format_measure('dependencies-used-declared') -%> <%= metric('dependencies-used-declared').short_name -%> 
-</p>
-<p>
-<%= format_measure('dependencies-unused-declared') -%> <%= metric('dependencies-unused-declared').short_name -%> 
-</p>
-<p>
-<%= format_measure('dependencies-used-undeclared') -%> <%= metric('dependencies-used-undeclared').short_name -%> 
-</p>
-<div class="yui-u">
-      <%= piechart(measure('dep-distrib'), { :size => "248x65"}) -%>
-</div>
-</div>
-</td>
-<td width="50%">
-<div class="dashbox">
-<p class="title">Potiental bug in dependencies declaration</p>
-<p>
-    <span class="big">
-      <%= format_measure('nb-potential-bugs-dependencies') -%>
-    </span>
-</p>
-<p>
-<%= format_measure('multiple-declaration') -%> <%= metric('multiple-declaration').short_name -%> 
-</p>
-<p>
-<%= format_measure('overriden-versions') -%> <%= metric('overriden-versions').short_name -%> 
-</p>
-<p>
-<%= format_measure('exclusion-errors') -%> <%= metric('exclusion-errors').short_name -%> 
-</p>
-</div>
-
-</td>
-
-</tr>
-
+	<tr>
+		<td width="50%">
+			<div class="dashbox">
+				<p class="title">Maven dependencies declared</p>
+				<p>
+  				<span class="big">
+    				<%= format_measure('nb-dependencies', :url => url_for_drilldown('nb-dependencies')) -%>
+  				</span>
+				</p>
+				<p>
+					<%= format_measure('dependencies-used-declared') -%> <%= metric('dependencies-used-declared').short_name -%> 
+				</p>
+				<p>
+					<%= format_measure('dependencies-unused-declared') -%> <%= metric('dependencies-unused-declared').short_name -%> <%= tendency_icon(measure('dependencies-unused-declared')) -%>
+				</p>
+				<p>
+					<%= format_measure('dependencies-used-undeclared') -%> <%= metric('dependencies-used-undeclared').short_name -%>  <%= tendency_icon(measure('dependencies-used-undeclared')) -%>
+				</p>
+				<div class="yui-u">
+      		<%= piechart(measure('dep-distrib'), { :size => "248x65"}) -%>
+				</div>
+			</div>
+		</td>
+		<td width="50%">
+			<div class="dashbox">
+				<p class="title">Potiental bug in dependencies declaration</p>
+				<p>
+    			<span class="big">
+      			<%= format_measure('nb-potential-bugs-dependencies') -%>
+    			</span>
+				</p>
+				<p>
+					<%= format_measure('multiple-declaration') -%> <%= metric('multiple-declaration').short_name -%> 
+				</p>
+				<p>
+					<%= format_measure('overriden-versions') -%> <%= metric('overriden-versions').short_name -%> 
+				</p>
+				<p>
+					<%= format_measure('exclusion-errors') -%> <%= metric('exclusion-errors').short_name -%> 
+				</p>
+			</div>
+		</td>
+	</tr>
 </table>

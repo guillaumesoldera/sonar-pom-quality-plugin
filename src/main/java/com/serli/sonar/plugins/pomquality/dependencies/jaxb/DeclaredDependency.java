@@ -25,37 +25,36 @@ public class DeclaredDependency {
   }
 
 
-  public String getGroupId() {
+  public final String getGroupId() {
     return groupId;
   }
 
-  public void setGroupId(String groupId) {
+  public final void setGroupId(String groupId) {
     this.groupId = groupId;
   }
 
-  public String getArtifactId() {
+  public final String getArtifactId() {
     return artifactId;
   }
 
-  public void setArtifactId(String artifactId) {
+  public final void setArtifactId(String artifactId) {
     this.artifactId = artifactId;
   }
 
-  public String getVersion() {
+  public final String getVersion() {
     return version;
   }
 
-  public void setVersion(String version) {
+  public final void setVersion(String version) {
     this.version = version;
   }
 
-  public int getLineNumber() {
+  public final int getLineNumber() {
     return lineNumber;
   }
 
-  public void setLineNumber(int lineNumber) {
+  public final void setLineNumber(int lineNumber) {
     this.lineNumber = lineNumber;
   }
-  
   
 }

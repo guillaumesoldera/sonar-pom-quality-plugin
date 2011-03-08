@@ -3,8 +3,6 @@ package com.serli.sonar.plugins.pomquality.dependencies.api;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.sonar.api.measures.Measure;
 import org.sonar.api.measures.PersistenceMode;
 import org.sonar.api.measures.PropertiesBuilder;
@@ -15,7 +13,6 @@ import com.serli.sonar.plugins.pomquality.dependencies.jaxb.Dependencies;
 
 public class PomQualityDependenciesParser extends AbstractPomQualityParser<Dependencies> {
 
-  private static Logger LOG = LoggerFactory.getLogger(PomQualityDependenciesParser.class);
   
 //  public void parseReport(File xmlFile, final SensorContext context, Project project) {
 //    org.sonar.api.resources.File pomFile = org.sonar.api.resources.File.fromIOFile(new File("pom.xml"), project);;
@@ -83,7 +80,10 @@ public class PomQualityDependenciesParser extends AbstractPomQualityParser<Depen
   
   private List<Measure> getPotentialBugsMeasures(Dependencies dependenciesAnalysis) {
     List<Measure> measures = new ArrayList<Measure>();
-    int multipleDeclarationNumber = dependenciesAnalysis.getMultipleDeclaration().size();
+    int multipleDeclarationNumber = 0;
+    if (dependenciesAnalysis.getMultipleDeclaration() != null) {
+      multipleDeclarationNumber = dependenciesAnalysis.getMultipleDeclaration().size();
+    }
     int overridenVersionsNumber = dependenciesAnalysis.getOverridenVersions().size();
     int exclusionErrorsNumber = dependenciesAnalysis.getExclusionErrors().size();
 

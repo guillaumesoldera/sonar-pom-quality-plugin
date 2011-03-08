@@ -18,21 +18,21 @@ public class MavenConventionsViolation {
 
   @XmlElementWrapper(name = "formattingViolations")
   @XmlElement(name = "violation")
-  public List<Violation> getFormattingViolations() {
+  public final List<Violation> getFormattingViolations() {
     return formattingViolations;
   }
 
-  public void setFormattingViolations(List<Violation> formattingViolations) {
+  public final void setFormattingViolations(List<Violation> formattingViolations) {
     this.formattingViolations = formattingViolations;
   }
 
   @XmlElementWrapper(name = "namingViolations")
   @XmlElement(name = "violation")
-  public List<Violation> getNamingViolations() {
+  public final List<Violation> getNamingViolations() {
     return namingViolations;
   }
 
-  public void setNamingViolations(List<Violation> namingViolations) {
+  public final void setNamingViolations(List<Violation> namingViolations) {
     this.namingViolations = namingViolations;
   }
   

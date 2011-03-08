@@ -23,61 +23,61 @@ public class Dependencies {
   
   @XmlElementWrapper(name = "usedDeclared")
   @XmlElement(name = "dependency")
-  public List<DeclaredDependency> getUsedDeclared() {
+  public final List<DeclaredDependency> getUsedDeclared() {
     return usedDeclared;
   }
 
-  public void setUsedDeclared(List<DeclaredDependency> usedDeclared) {
+  public final void setUsedDeclared(List<DeclaredDependency> usedDeclared) {
     this.usedDeclared = usedDeclared;
   }
 
   @XmlElementWrapper(name = "unusedDeclared")
   @XmlElement(name = "dependency")
-  public List<DeclaredDependency> getUnusedDeclared() {
+  public final List<DeclaredDependency> getUnusedDeclared() {
     return unusedDeclared;
   }
 
-  public void setUnusedDeclared(List<DeclaredDependency> unusedDeclared) {
+  public final void setUnusedDeclared(List<DeclaredDependency> unusedDeclared) {
     this.unusedDeclared = unusedDeclared;
   }
 
   @XmlElementWrapper(name = "usedUndeclared")
   @XmlElement(name = "dependency")
-  public List<UndeclaredDependency> getUsedUndeclared() {
+  public final List<UndeclaredDependency> getUsedUndeclared() {
     return usedUndeclared;
   }
 
-  public void setUsedUndeclared(List<UndeclaredDependency> usedUndeclared) {
+  public final void setUsedUndeclared(List<UndeclaredDependency> usedUndeclared) {
     this.usedUndeclared = usedUndeclared;
   }
 
   @XmlElementWrapper(name = "multipleDeclaration")
   @XmlElement(name = "dependency")
-  public List<MultipleDeclarationDependency> getMultipleDeclaration() {
+  public final List<MultipleDeclarationDependency> getMultipleDeclaration() {
     return multipleDeclaration;
   }
 
-  public void setMultipleDeclaration(List<MultipleDeclarationDependency> multipleDeclaration) {
+  public final void setMultipleDeclaration(List<MultipleDeclarationDependency> multipleDeclaration) {
     this.multipleDeclaration = multipleDeclaration;
   }
 
   @XmlElementWrapper(name = "overridenVersions")
   @XmlElement(name = "dependency")
-  public List<OverridingDependencyVersion> getOverridenVersions() {
+  public final List<OverridingDependencyVersion> getOverridenVersions() {
     return overridenVersions;
   }
 
-  public void setOverridenVersions(List<OverridingDependencyVersion> overridenVersions) {
+  public final void setOverridenVersions(List<OverridingDependencyVersion> overridenVersions) {
     this.overridenVersions = overridenVersions;
   }
   
   @XmlElementWrapper(name = "exclusionErrors")
   @XmlElement(name = "dependency")
-  public List<ExclusionDependency> getExclusionErrors() {
+  public final List<ExclusionDependency> getExclusionErrors() {
     return exclusionErrors;
   }
 
-  public void setExclusionErrors(List<ExclusionDependency> exclusionErrors) {
+  public final void setExclusionErrors(List<ExclusionDependency> exclusionErrors) {
     this.exclusionErrors = exclusionErrors;
   }
   

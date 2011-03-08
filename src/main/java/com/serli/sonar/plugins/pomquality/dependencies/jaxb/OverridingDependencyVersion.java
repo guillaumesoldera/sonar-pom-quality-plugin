@@ -27,43 +27,43 @@ public class OverridingDependencyVersion {
     this.lineNumber = lineNumber;
   }
 
-  public String getGroupId() {
+  public final String getGroupId() {
     return groupId;
   }
 
-  public void setGroupId(String groupId) {
+  public final void setGroupId(String groupId) {
     this.groupId = groupId;
   }
 
-  public String getArtifactId() {
+  public final String getArtifactId() {
     return artifactId;
   }
 
-  public void setArtifactId(String artifactId) {
+  public final void setArtifactId(String artifactId) {
     this.artifactId = artifactId;
   }
 
-  public String getVersionDepMgt() {
+  public final String getVersionDepMgt() {
     return versionDepMgt;
   }
 
-  public void setVersionDepMgt(String versionDepMgt) {
+  public final void setVersionDepMgt(String versionDepMgt) {
     this.versionDepMgt = versionDepMgt;
   }
 
-  public String getVersionResolved() {
+  public final String getVersionResolved() {
     return versionResolved;
   }
 
-  public void setVersionResolved(String versionResolved) {
+  public final void setVersionResolved(String versionResolved) {
     this.versionResolved = versionResolved;
   }
 
-  public int getLineNumber() {
+  public final int getLineNumber() {
     return lineNumber;
   }
 
-  public void setLineNumber(int lineNumber) {
+  public final void setLineNumber(int lineNumber) {
     this.lineNumber = lineNumber;
   }
   

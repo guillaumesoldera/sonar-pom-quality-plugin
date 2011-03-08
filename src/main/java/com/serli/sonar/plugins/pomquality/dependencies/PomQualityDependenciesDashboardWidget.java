@@ -4,23 +4,6 @@ import org.sonar.api.web.*;
 
 @UserRole(UserRole.USER)
 @Description("Quality of dependencies declaration in POM File")
-@WidgetProperties({
-        @WidgetProperty(key="param1",
-                        description="This is a mandatory parameter",
-                        optional=false
-        ),
-        @WidgetProperty(key="max",
-                        description="max threshold",
-                        type=WidgetPropertyType.INTEGER,
-                        defaultValue="80"
-        ),
-        @WidgetProperty(key="param2",
-                        description="This is an optional parameter"
-        ),
-        @WidgetProperty(key="floatprop",
-                        description="test description"
-        )
-})
 public class PomQualityDependenciesDashboardWidget extends AbstractRubyTemplate implements RubyRailsWidget {
 
   public String getId() {

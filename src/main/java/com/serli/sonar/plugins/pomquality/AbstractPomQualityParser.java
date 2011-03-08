@@ -14,12 +14,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.measures.Measure;
-import org.sonar.api.resources.Project;
-import org.sonar.api.rules.Rule;
 
 public abstract class AbstractPomQualityParser<T> {
 
-  private static Logger LOG = LoggerFactory.getLogger(AbstractPomQualityParser.class);
+  private static Logger log = LoggerFactory.getLogger(AbstractPomQualityParser.class);
 
   public void parseReport(File xmlFile, final SensorContext context, Class... classToBeBound) {
 //    org.sonar.api.resources.File pomFile = org.sonar.api.resources.File.fromIOFile(new File("pom.xml"), project);
@@ -29,21 +27,23 @@ public abstract class AbstractPomQualityParser<T> {
 //      pomFile = new org.sonar.api.resources.File("pom.xml");
 //    }
 //    context.index(pomFile);
-    Rule rule = Rule.create("maven-quality-plugin", "dependencyUsedAndDeclared", "Dependency used and declared");
+//    Rule rule = Rule.create("maven-quality-plugin", "dependencyUsedAndDeclared", "Dependency used and declared");
 
-    LOG.info("parse report " + xmlFile.getPath());
+    log.info("parse report " + xmlFile.getPath());
     try {
       T resultAnalysis = getResultAnalysis(xmlFile, classToBeBound);
 
       List<Measure> measures = getMeasures(resultAnalysis);
+     
       for (Measure measure : measures) {
         context.saveMeasure(measure);
       }
 
     } catch (FileNotFoundException e) {
       e.printStackTrace();
+      log.error(e.getMessage(), e);
     } catch (JAXBException e) {
-      e.printStackTrace();
+      log.error(e.getMessage(), e);
     }
   }
 
@@ -52,8 +52,7 @@ public abstract class AbstractPomQualityParser<T> {
     Unmarshaller unmarshaller = jc.createUnmarshaller();
     InputStream resultDependenciesAnalysis = new FileInputStream(file);
 
-    T conventions = (T) unmarshaller.unmarshal(resultDependenciesAnalysis);
-    return conventions;
+    return (T) unmarshaller.unmarshal(resultDependenciesAnalysis);
   }
 
   public abstract List<Measure> getMeasures(T report);

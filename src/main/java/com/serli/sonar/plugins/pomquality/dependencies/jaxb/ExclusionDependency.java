@@ -21,27 +21,27 @@ public class ExclusionDependency {
     this.versionFound = versionFound;
   }
 
-  public String getGroupId() {
+  public final String getGroupId() {
     return groupId;
   }
 
-  public void setGroupId(String groupId) {
+  public final void setGroupId(String groupId) {
     this.groupId = groupId;
   }
 
-  public String getArtifactId() {
+  public final String getArtifactId() {
     return artifactId;
   }
 
-  public void setArtifactId(String artifactId) {
+  public final void setArtifactId(String artifactId) {
     this.artifactId = artifactId;
   }
 
-  public String getVersionFound() {
+  public final String getVersionFound() {
     return versionFound;
   }
 
-  public void setVersionFound(String versionFound) {
+  public final void setVersionFound(String versionFound) {
     this.versionFound = versionFound;
   }
   
